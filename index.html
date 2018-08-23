@@ -4,11 +4,21 @@
     
     <head>
     <title>Weather API</title>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    
+    
     <style>
     
-    
-    
-    
+
+  header {
+    font-size: 120px;
+    font-family: monospace ;
+    padding-left: 540px;
+    margin-top:40px;
+  }  
     
     
     
@@ -22,14 +32,73 @@
 
 <body>
         
+<header>Weather</header>
+
+<button  onclick="getLocation()" style="margin-left: 750px;">Location</button>
+
+<p id="demo"></p>
+<p id="weather"></p>  
+<p id="currTemp"></p>        
         
         
         
         
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ <script>
+ var api = "https://fcc-weather-api.glitch.me/api/current?lon=:longitude&lat=:latitude/api/current?lon=:longitude&lat=:latitude";
+    var longitude = "position.coords.longitude";
+    var latitude = "position.coords.latitude";
+    var temp = "°F"
+    var temp1 = "C"
+   
+    
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition)
         
         
-        
-        
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+var weather = document.getElementById("weather");
+function getWeather(longitude, latitude) {
+  var urlString = api + latitude + "&"  + longitude
+  + temp + temp1;
+  navigator.geolocation.getCurrentPosition(getWeather);
+  
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+}
+
+
+</script>    
         
         
         
