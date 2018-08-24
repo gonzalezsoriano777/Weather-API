@@ -1,6 +1,6 @@
 const loc = document.getElementById("location");
-const temNum = document.getElementById("temperature-num");
-const temScale = document.getElementById("temperature-scale"); // Calling each and every ID
+const temperNum = document.getElementById("temperature-num");
+const temperScale = document.getElementById("temperature-scale"); // Calling each and every ID
 const weatherCon = document.getElementById("weather-condition");
 const weatherIcon = document.getElementById("weather-icon");
 
@@ -17,7 +17,7 @@ function getLocation() {
 }
 
 
-//Getting the weather based off the location
+// Calling the actual weather API request using fetch as well as update the data to DOM
 function getWeather(lat, long) {
   const root = "https://fcc-weather-api.glitch.me/api/current?";
   fetch(`${root}lat=${lat}&lon=${long}`, { method: "get" })
@@ -30,12 +30,12 @@ function getWeather(lat, long) {
     });
 }
 
-// Moving the Api or updating it to DOM
+// Moving the Api or updating it to DOM. It overall overwrites the code to DOM
 function updateDataToUI(location, weather, temp) {
   weatherIcon.innerHTML = `<img src="${weather[0].icon}" />`;
   weatherCon.innerHTML = weather[0].main;
   loc.innerHTML = location;
-  temNum.innerHTML = `${temp}`;
+  temperNum.innerHTML = `${temp}`;
 }
 
 // Calling it the actual Weather and Location
@@ -53,18 +53,19 @@ function fToC(fahrenheit) {
   return (fahrenheit - 32) * 5 / 9;
 }
 
+// This is considered the handle function , in which changes the Celsius to Fahrenheit (Prior towards Event listener)
 function toggleScale() {
-  if (temScale.innerHTML === "C") {
-    temNum.innerHTML = cToF(temNum.innerHTML).toFixed(2);
-    temScale.innerHTML = "F";
-  } else if (temScale.innerHTML === 'F') {
-    temNum.innerHTML = fToC(temNum.innerHTML).toFixed(2);
-    temScale.innerHTML = "C";
+  if (temperScale.innerHTML === "C") {
+    temperNum.innerHTML = cToF(temperNum.innerHTML).toFixed(2);
+    temperScale.innerHTML = "F";
+  } else if (temperScale.innerHTML === 'F') {
+    temperNum.innerHTML = fToC(temperNum.innerHTML).toFixed(2);
+    temperScale.innerHTML = "C";
   }
 }
 
-// toggle the temperature scale
-temScale.addEventListener("click", toggleScale);
+// Everytime the user clicks on the Celsius symbol it changes from Celsius to Fahrenheit
+temperScale.addEventListener("click", toggleScale);
 
 
 
