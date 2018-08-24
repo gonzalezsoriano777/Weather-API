@@ -11,7 +11,9 @@
     
     
     <style>
-    
+   body {
+     background: url(https://image.freepik.com/free-photo/paint-drops-on-black-background_23-2147798308.jpg);
+   } 
 
   header {
     font-size: 120px;
@@ -21,7 +23,10 @@
   }  
     
   .info {
-   margin-left: 750px; 
+   margin-left: 715px;
+   color: white;
+   font-family: monospace;
+   font-size: 30px;
   }
     
     
@@ -34,7 +39,8 @@
 
 <body>
         
-<header>Weather</header>
+<header style="color: white;">Weather</header>
+<h1 style="color: white; margin-left: 650px; font-family: monospace; margin-top: 20px;">By Hector Gonzalez</h1>
 
 <button  onclick="getLocation()" style="margin-left: 750px;">Location</button>
 
@@ -43,8 +49,9 @@
 <p id="currTemp"></p> -->       
         
  <div class="container">
-  <div class="title"></div>
-  <div class="subtitle"></div>
+  
+  <div class="title">Weather Location!</div>
+  <div class="subtitle">Here is yours</div>
   <div class="weather-info">
     <div id="location" class="info"></div>
     <div id="temperature" class="info">

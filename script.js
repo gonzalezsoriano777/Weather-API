@@ -43,11 +43,28 @@ window.onload = function() {
   getLocation();
 };
 
+//To change the celsius to fahrenheit , the start of the toggle button
+function cToF(celsius) {
+  return celsius * 9 / 5 + 32;
+}
 
+// change from Fahrenheit to Celsius 
+function fToC(fahrenheit) {
+  return (fahrenheit - 32) * 5 / 9;
+}
 
+function toggleScale() {
+  if (temScale.innerHTML === "C") {
+    temNum.innerHTML = cToF(temNum.innerHTML).toFixed(2);
+    temScale.innerHTML = "F";
+  } else if (temScale.innerHTML === 'F') {
+    temNum.innerHTML = fToC(temNum.innerHTML).toFixed(2);
+    temScale.innerHTML = "C";
+  }
+}
 
-
-
+// toggle the temperature scale
+temScale.addEventListener("click", toggleScale);
 
 
 
