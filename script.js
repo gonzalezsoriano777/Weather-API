@@ -1,3 +1,4 @@
+alert("Weather Location, Here is yours!");
 const loc = document.getElementById("location");
 const temperNum = document.getElementById("temperature-num");
 const temperScale = document.getElementById("temperature-scale"); // Calling each and every ID
