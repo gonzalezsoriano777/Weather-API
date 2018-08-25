@@ -29,7 +29,9 @@
    font-size: 30px;
   }
     
-    
+ #togglebutton {
+     margin-left: 750px;
+ }
     
     
     
@@ -57,10 +59,11 @@
     <div id="temperature" class="weader">
       <span id="temperature-num"></span>
       <span>&deg;</span>
-      <span id="temperature-scale">C</span>
+        <span id="temperature-scale">C</span>
     </div>
     <div id="weather-condition" class="weader"></div>
     <div id="weather-icon" class="weader"></div>
+    <button id="togglebutton" class="btn btn-info" onclick="toggleScale()">Toggle Temperature Units</button>
   </div>
 </div>       
         
